@@ -1,0 +1,6 @@
+/media_root
+/static_root
+.env
+/__pycache__
+/migrations
+db.sqlite3
