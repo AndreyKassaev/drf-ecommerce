@@ -59,4 +59,14 @@ def ValidateEmail(request, email):
         return Response(False)
 
          
+@api_view(["GET"])
+def ValidateAuthorName(request, name):
+    user = get_user_model()
+    try:
+        author_name = user.objects.get(author__name=name)
+        return Response(True)
+    except:
+        return Response(False)
+
+         
 

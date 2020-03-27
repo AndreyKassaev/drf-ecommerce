@@ -5,7 +5,8 @@ from .views import (
     ValidateEmail,
     BecomeAnAuthor,
     are_you_author,
-    UpdateProfile
+    UpdateProfile,
+    ValidateAuthorName
 )
 
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path('authors-list/', ListAllAuthors.as_view()),
     path('single-author/<name>/', SingleAuthor.as_view()),
     path('validate-email/<email>/', ValidateEmail),
+    path('validate-name/<name>/', ValidateAuthorName),
     path('become-an-author/', BecomeAnAuthor.as_view()),
     path('are-you-author/', are_you_author),
     path('update-profile/<pk>', UpdateProfile.as_view())
