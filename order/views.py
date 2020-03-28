@@ -10,7 +10,17 @@ from django.conf import settings
 # 3. braintree form
 # 4.1 if resilt.is_success == True send email, redirect to main page and show success message
 # 4.2 if resilt.is_success == False, redirect to order page and show fail message
+import braintree
+import os
 
+gateway = braintree.BraintreeGateway(
+    braintree.Configuration(
+        braintree.Environment.Sandbox,
+        merchant_id=os.getenv("MERCHANT_ID"),
+        public_key=os.getenv("PUBLIC_KEY"),
+        private_key=os.getenv("PRIVATE_KEY")
+    )
+)
 @api_view(['POST',])
 def create_order(request):
     """Create Order and Send Braintree Token Back"""
@@ -55,7 +65,7 @@ def create_order(request):
         order_id = order.id
     
 
-        client_token = settings.gateway.client_token.generate()
+        client_token = gateway.client_token.generate()
         
         return Response({'msg':'Order Created', 'client_token':client_token, 'order_id':order_id})
 
@@ -77,7 +87,7 @@ def payment(request):
         order = Order.objects.get(id=order_id)
         amount = order.cart.total_price
         email = order.address.email
-        result = settings.gateway.transaction.sale({
+        result = gateway.transaction.sale({
             "amount": amount,
             "payment_method_nonce": nonce,
             "options": {
@@ -98,7 +108,7 @@ def payment(request):
                 send_mail(
                     'Order',
                     email_data,
-                    'django_smtp@mail.ru',
+                    os.getenv('EMAIL_HOST_PASSWORD'),
                     [email,],
                     fail_silently=True
                     )
