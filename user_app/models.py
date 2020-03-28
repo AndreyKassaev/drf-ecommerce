@@ -33,9 +33,9 @@ class Customer(models.Model):
 
 
 class Author(models.Model):
-    image = models.ImageField(null=True)
+    image = models.ImageField()
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True, related_name="author")
-    name = models.CharField(max_length=255)
+    name = models.CharField(unique=True, max_length=255)
     bio = models.TextField(max_length=1000)
 
     def __str__(self):
