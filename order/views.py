@@ -108,7 +108,7 @@ def payment(request):
                 send_mail(
                     'Order',
                     email_data,
-                    os.getenv('EMAIL_HOST_PASSWORD'),
+                    os.getenv('EMAIL_HOST_USER'),
                     [email,],
                     fail_silently=True
                     )
