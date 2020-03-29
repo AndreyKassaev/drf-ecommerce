@@ -5,8 +5,7 @@ class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Author
-        fields = ['id','image', 'name', 'bio']
-
+        fields = ['id','image', 'name', 'bio', ]
 
 class UpdateProfileSerializer(serializers.ModelSerializer):
 

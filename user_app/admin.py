@@ -30,7 +30,7 @@ class CustomerAdminPanel(admin.ModelAdmin):
     list_display = ('id', 'user', 'session')
 
 class AuthorAdminPanel(admin.ModelAdmin):
-    list_display = ('id', 'user', 'name', )
+    list_display = ('id', 'user', 'name', 'date_created',)
 
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Customer, CustomerAdminPanel)

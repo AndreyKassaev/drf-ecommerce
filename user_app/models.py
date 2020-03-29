@@ -37,6 +37,10 @@ class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True, related_name="author")
     name = models.CharField(unique=True, max_length=255)
     bio = models.TextField(max_length=1000)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        ordering = ('-date_created',)
 
     def __str__(self):
         return self.name
