@@ -1,6 +1,7 @@
 Backend part of eCommerce project made by Django Rest Framework
 
 (Frontend part https://github.com/dodep/vue-ecommerce)  
+
 (Deploy VPS, Postgresql, Gunicorn, Supervisor, Nginx)
 
 working example: https://www.dodep.club
@@ -26,14 +27,14 @@ Of Non Authenticated Users:
 
 Of Authenticated Users:
 
--All previous
--Password Reset
--Payment History
--Opportunity to Become an Author and Post Products
+-All previous  
+-Password Reset  
+-Payment History  
+-Opportunity to Become an Author and Post Products  
 
 Of Author Users:
 
--All previous
--Add Product
--Edit Product
--Edit Profile
+-All previous  
+-Add Product  
+-Edit Product  
+-Edit Profile  
