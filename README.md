@@ -2,10 +2,6 @@ Backend part of eCommerce project made by Django Rest Framework
 
 (Frontend part: https://github.com/dodep/vue-ecommerce)  
 
-(Deploy: VPS, Postgresql, Gunicorn, Supervisor, Nginx)
-
-working example: https://www.dodep.club
-
 eCommerce project:
 
 name: Fictional Online Art Shop
